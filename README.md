@@ -17,7 +17,7 @@ enum Destination: String, CaseIterable {
     case googleAnalytics, appServer
 }
 
-analyticsTracker.addDestinationSender(destination: Destination.googleAnalytics.rawValue) { [weak self] (event, success) in
+analyticsTracker.addDestinationSender(destination: Destination.googleAnalytics.rawValue) { (event, success) in
 
     // send to destination
     
