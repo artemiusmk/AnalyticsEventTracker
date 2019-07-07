@@ -8,6 +8,12 @@ It retries sending after network or others errors, uses CoreData for events stor
 
 Library logger is open for customizations
 
+## Example - send event
+
+```swift
+analyticsTracker.send(event: "TestEvent", destination: Destination.appServer.rawValue)
+```
+
 ## Example - implement event sender for destination
 
 NOTE: Closure is run on the **background queue**.
@@ -51,10 +57,4 @@ func setupNetworkReachability(reachabilityUpdater: @escaping (Bool) -> Void) {
 func networkReachable() -> Bool {
     return reachability?.connection != .none
 }
-```
-
-## Example - send event
-
-```swift
-analyticsTracker.send(event: "TestEvent", destination: Destination.appServer.rawValue)
 ```
