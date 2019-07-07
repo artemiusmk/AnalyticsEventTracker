@@ -11,6 +11,10 @@ Library logger is open for customizations
 ## Example - send event
 
 ```swift
+enum Destination: String, CaseIterable {
+    case googleAnalytics, appServer
+}
+
 analyticsTracker.send(event: "TestEvent", destination: Destination.appServer.rawValue)
 ```
 
@@ -19,10 +23,6 @@ analyticsTracker.send(event: "TestEvent", destination: Destination.appServer.raw
 NOTE: Closure is run on the **background queue**.
 
 ```swift
-enum Destination: String, CaseIterable {
-    case googleAnalytics, appServer
-}
-
 analyticsTracker.addDestinationSender(destination: Destination.googleAnalytics.rawValue) { 
     (event, success) in
 
